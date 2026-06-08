@@ -4,9 +4,11 @@ Finish defining user stories #1
 As a product owner
 I need all user stories to be clearly defined
 So that the development team understands the full scope of the project.
+
 Acceptance Criteria
 All required user stories are written
 Each story follows the template
+
 Acceptance criteria are defined
 Stories are reviewed and approved
 
