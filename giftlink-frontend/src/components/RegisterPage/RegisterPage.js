@@ -8,9 +8,37 @@ function RegisterPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleRegister = async () => {
-        console.log("Register invoked")
+  
+const handleRegister = async () => {
+    try {
+        console.log("Register invoked");
+
+        const response = await fetch('http://localhost:5000/api/users/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                password: password
+            })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.message || 'Registration failed');
+        }
+
+        console.log("Registration successful:", data);
+
+    } catch (error) {
+        console.error("Error during registration:", error);
     }
+};
+
 
 return (
     <div className="container mt-5">
